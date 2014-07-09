@@ -1,4 +1,4 @@
-package com.aaronhible.savvis.model;
+package com.aaronhible.codechallenge.model;
 
 import java.util.Collection;
 

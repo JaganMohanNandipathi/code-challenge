@@ -1,4 +1,4 @@
-package com.aaronhible.savvis.model;
+package com.aaronhible.codechallenge.model;
 
 import java.math.BigDecimal;
 import java.util.Collection;
