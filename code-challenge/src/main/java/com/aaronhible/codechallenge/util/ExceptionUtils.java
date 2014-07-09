@@ -1,6 +1,6 @@
 package com.aaronhible.codechallenge.util;
 
-import com.aaronhible.codechallenge.model.Employee;
+import com.aaronhible.codechallenge.domain.employee.model.Employee;
 
 public class ExceptionUtils {
 	public static void illegalStateException(Employee employee,

@@ -2,7 +2,7 @@ package com.aaronhible.codechallenge.calculation;
 
 import java.math.BigDecimal;
 
-import com.aaronhible.codechallenge.model.Employee;
+import com.aaronhible.codechallenge.domain.employee.model.Employee;
 
 public class Calculate {
 	public static BigDecimal sumAllocations(Employee employee) {

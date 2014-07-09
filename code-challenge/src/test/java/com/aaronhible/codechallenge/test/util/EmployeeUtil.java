@@ -1,22 +1,22 @@
 package com.aaronhible.codechallenge.test.util;
 
-import com.aaronhible.codechallenge.model.Developer;
-import com.aaronhible.codechallenge.model.Employee;
-import com.aaronhible.codechallenge.model.EmployeeId;
-import com.aaronhible.codechallenge.model.Manager;
-import com.aaronhible.codechallenge.model.QATester;
+import com.aaronhible.codechallenge.domain.employee.model.Developer;
+import com.aaronhible.codechallenge.domain.employee.model.Employee;
+import com.aaronhible.codechallenge.domain.employee.model.EmployeeId;
+import com.aaronhible.codechallenge.domain.employee.model.Manager;
+import com.aaronhible.codechallenge.domain.employee.model.QATester;
 
 public class EmployeeUtil {
 
-	public static Employee createManager() {
+	public static Manager createManager() {
 		return new Manager(new EmployeeId());
 	}
 
-	public static Employee createDeveloper() {
+	public static Developer createDeveloper() {
 		return new Developer(new EmployeeId());
 	}
 
-	public static Employee createQATester() {
+	public static QATester createQATester() {
 		return new QATester(new EmployeeId());
 	}
 
@@ -41,4 +41,17 @@ public class EmployeeUtil {
 
 		return managerA;
 	}
+
+	public static Manager createManagerWithReports(int developers,
+			int qatesters) {
+		Manager manager = createManager();
+		for (int j = 0; j < developers; j++) {
+			manager.addReport(createDeveloper());
+		}
+		for (int j = 0; j < qatesters; j++) {
+			manager.addReport(createQATester());
+		}
+		return manager;
+	}
+
 }

@@ -1,4 +1,4 @@
-package com.aaronhible.codechallenge.model;
+package com.aaronhible.codechallenge.domain.employee.model;
 
 import java.math.BigDecimal;
 import java.util.Collection;

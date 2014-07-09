@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 
 import org.junit.Test;
 
-import com.aaronhible.codechallenge.model.Employee;
+import com.aaronhible.codechallenge.domain.employee.model.Employee;
 import com.aaronhible.codechallenge.test.util.EmployeeUtil;
 
 public class CalculateTestCase {

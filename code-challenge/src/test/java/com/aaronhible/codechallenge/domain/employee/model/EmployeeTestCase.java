@@ -1,4 +1,4 @@
-package com.aaronhible.codechallenge.model;
+package com.aaronhible.codechallenge.domain.employee.model;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -7,6 +7,12 @@ import java.math.BigDecimal;
 import java.util.Collection;
 
 import org.junit.Test;
+
+import com.aaronhible.codechallenge.domain.employee.model.Developer;
+import com.aaronhible.codechallenge.domain.employee.model.Employee;
+import com.aaronhible.codechallenge.domain.employee.model.EmployeeId;
+import com.aaronhible.codechallenge.domain.employee.model.Manager;
+import com.aaronhible.codechallenge.domain.employee.model.QATester;
 
 public class EmployeeTestCase {
 

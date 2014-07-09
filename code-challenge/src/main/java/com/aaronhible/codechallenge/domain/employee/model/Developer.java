@@ -1,14 +1,14 @@
-package com.aaronhible.codechallenge.model;
+package com.aaronhible.codechallenge.domain.employee.model;
 
 import static com.aaronhible.codechallenge.util.ExceptionUtils.illegalStateException;
 
 import java.math.BigDecimal;
 
-public class QATester extends Employee {
+public class Developer extends Employee {
 
-	private static final BigDecimal EXPENSE_ALLOCATION = new BigDecimal(500);
+	private static final BigDecimal EXPENSE_ALLOCATION = new BigDecimal(1000);
 
-	public QATester(EmployeeId employeeId) {
+	public Developer(EmployeeId employeeId) {
 		this.employeeId = employeeId;
 	}
 
@@ -21,7 +21,6 @@ public class QATester extends Employee {
 	public void addReport(Employee employee) {
 		illegalStateException(employee, this);
 	}
-
 
 	@Override
 	public EmployeeId getEmployeeId() {
