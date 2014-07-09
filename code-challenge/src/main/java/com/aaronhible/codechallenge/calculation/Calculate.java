@@ -2,6 +2,7 @@ package com.aaronhible.codechallenge.calculation;
 
 import java.math.BigDecimal;
 
+import com.aaronhible.codechallenge.domain.department.model.Department;
 import com.aaronhible.codechallenge.domain.employee.model.Employee;
 
 public class Calculate {
@@ -13,6 +14,10 @@ public class Calculate {
 			total = total.add(sumAllocations(directReport));
 		}
 		return total;
+	}
+
+	public static BigDecimal sumAllocations(Department rockStart) {
+		return sumAllocations(rockStart.getManager());
 	}
 
 }
