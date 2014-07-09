@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.math.BigDecimal;
+import java.util.Collection;
 
 import org.junit.Test;
 
@@ -48,7 +49,7 @@ public class EmployeeTestCase {
 		assertEquals(expectedAllocation, employee.getEmployeeType()
 				.getExpenseAllocation());
 	}
-	
+
 	/**
 	 * UseCase: Managers warrant an allocation of $3300 each.
 	 */
@@ -66,7 +67,35 @@ public class EmployeeTestCase {
 		assertTrue(employee.getEmployeeType() instanceof ManagerType);
 		assertEquals(expectedAllocation, employee.getEmployeeType()
 				.getExpenseAllocation());
-		
+
 	}
 
+	/**
+	 * UseCase: Managers can have QA Testers, Developers and other managers
+	 * report to them.
+	 */
+	@Test
+	public void managersCanHaveQATestersDeveloperManagerReports() {
+		// expected
+		Employee irisManager = new Employee(new EmployeeId(), new ManagerType());
+		Employee ryeDeveloper = new Employee(new EmployeeId(),
+				new DeveloperType());
+		Employee bruceQATester = new Employee(new EmployeeId(),
+				new QATesterType());
+
+		// setup
+		Employee jtManager = new Employee(new EmployeeId(), new ManagerType());
+
+		// action
+		jtManager.addReport(irisManager);
+		jtManager.addReport(ryeDeveloper);
+		jtManager.addReport(bruceQATester);
+		Collection<Employee> reports = jtManager.getReports();
+
+		// assert
+		assertTrue(reports.contains(irisManager));
+		assertTrue(reports.contains(ryeDeveloper));
+		assertTrue(reports.contains(bruceQATester));
+
+	}
 }

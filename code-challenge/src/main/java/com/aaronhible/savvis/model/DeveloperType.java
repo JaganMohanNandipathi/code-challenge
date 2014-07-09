@@ -11,4 +11,9 @@ public class DeveloperType extends EmployeeType {
 		return EXPENSE_ALLOCATION;
 	}
 
+	@Override
+	public void addReport(Employee employee) {
+		throw new IllegalStateException("Cannot add " + Employee.class.getSimpleName() + " to " + this.getClass().getSimpleName());
+	}
+
 }

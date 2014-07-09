@@ -11,4 +11,9 @@ public class ManagerType extends EmployeeType {
 		return EXPENSE_ALLOCATION;
 	}
 
+	@Override
+	public void addReport(Employee employee) {
+		reports.add(employee);
+	}
+
 }
