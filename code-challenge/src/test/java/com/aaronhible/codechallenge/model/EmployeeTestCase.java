@@ -21,11 +21,11 @@ public class EmployeeTestCase {
 
 		// setup / action
 		EmployeeId employeeId = new EmployeeId();
-		EmployeeType employee = new QATesterType(employeeId);
+		Employee employee = new QATester(employeeId);
 
 		// assert
 		assertEquals(employee.getEmployeeId(), employeeId);
-		assertTrue(employee instanceof QATesterType);
+		assertTrue(employee instanceof QATester);
 		assertEquals(expectedAllocation, employee.getExpenseAllocation());
 
 	}
@@ -40,11 +40,11 @@ public class EmployeeTestCase {
 
 		// setup / action
 		EmployeeId employeeId = new EmployeeId();
-		EmployeeType employee = new DeveloperType(employeeId);
+		Employee employee = new Developer(employeeId);
 
 		// assert
 		assertEquals(employee.getEmployeeId(), employeeId);
-		assertTrue(employee instanceof DeveloperType);
+		assertTrue(employee instanceof Developer);
 		assertEquals(expectedAllocation, employee.getExpenseAllocation());
 	}
 
@@ -58,11 +58,11 @@ public class EmployeeTestCase {
 
 		// setup / action
 		EmployeeId employeeId = new EmployeeId();
-		EmployeeType employee = new ManagerType(employeeId);
+		Employee employee = new Manager(employeeId);
 
 		// assert
 		assertEquals(employee.getEmployeeId(), employeeId);
-		assertTrue(employee instanceof ManagerType);
+		assertTrue(employee instanceof Manager);
 		assertEquals(expectedAllocation, employee.getExpenseAllocation());
 
 	}
@@ -74,18 +74,18 @@ public class EmployeeTestCase {
 	@Test
 	public void managersCanHaveQATestersDeveloperManagerReports() {
 		// expected
-		EmployeeType irisManager = new ManagerType(new EmployeeId());
-		EmployeeType ryeDeveloper = new DeveloperType(new EmployeeId());
-		EmployeeType bruceQATester = new QATesterType(new EmployeeId());
+		Employee irisManager = new Manager(new EmployeeId());
+		Employee ryeDeveloper = new Developer(new EmployeeId());
+		Employee bruceQATester = new QATester(new EmployeeId());
 
 		// setup
-		EmployeeType jtManager = new ManagerType(new EmployeeId());
+		Employee jtManager = new Manager(new EmployeeId());
 
 		// action
 		jtManager.addReport(irisManager);
 		jtManager.addReport(ryeDeveloper);
 		jtManager.addReport(bruceQATester);
-		Collection<EmployeeType> reports = jtManager.getReports();
+		Collection<Employee> reports = jtManager.getReports();
 
 		// assert
 		assertTrue(reports.contains(irisManager));
@@ -101,8 +101,8 @@ public class EmployeeTestCase {
 	public void qaTestersCannotHaveReports() {
 		// setup
 		// qa testers love to manage developers but they can't!
-		EmployeeType bruceQATester = new QATesterType(new EmployeeId());
-		EmployeeType ryeDeveloper = new DeveloperType(new EmployeeId());
+		Employee bruceQATester = new QATester(new EmployeeId());
+		Employee ryeDeveloper = new Developer(new EmployeeId());
 
 		// action
 		bruceQATester.addReport(ryeDeveloper);
@@ -117,8 +117,8 @@ public class EmployeeTestCase {
 	public void developersCannotHaveReports() {
 		// setup
 		// developers so wish they could manage qa testers
-		EmployeeType ryeDeveloper = new DeveloperType(new EmployeeId());
-		EmployeeType bruceQATester = new QATesterType(new EmployeeId());
+		Employee ryeDeveloper = new Developer(new EmployeeId());
+		Employee bruceQATester = new QATester(new EmployeeId());
 
 		// action
 		ryeDeveloper.addReport(bruceQATester);

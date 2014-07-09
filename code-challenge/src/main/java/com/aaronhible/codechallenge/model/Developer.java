@@ -4,11 +4,11 @@ import static com.aaronhible.codechallenge.util.ExceptionUtils.illegalStateExcep
 
 import java.math.BigDecimal;
 
-public class QATesterType extends EmployeeType {
+public class Developer extends Employee {
 
-	private static final BigDecimal EXPENSE_ALLOCATION = new BigDecimal(500);
+	private static final BigDecimal EXPENSE_ALLOCATION = new BigDecimal(1000);
 
-	public QATesterType(EmployeeId employeeId) {
+	public Developer(EmployeeId employeeId) {
 		this.employeeId = employeeId;
 	}
 
@@ -18,10 +18,9 @@ public class QATesterType extends EmployeeType {
 	}
 
 	@Override
-	public void addReport(EmployeeType employee) {
+	public void addReport(Employee employee) {
 		illegalStateException(employee, this);
 	}
-
 
 	@Override
 	public EmployeeId getEmployeeId() {

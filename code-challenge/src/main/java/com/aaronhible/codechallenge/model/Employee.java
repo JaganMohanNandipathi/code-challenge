@@ -6,11 +6,11 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-public abstract class EmployeeType {
+public abstract class Employee {
 
 	protected EmployeeId employeeId;
 
-	protected Set<EmployeeType> reports = new HashSet<EmployeeType>();
+	protected Set<Employee> reports = new HashSet<Employee>();
 
 	/**
 	 * Returns the expense allocation amount for the employee type. This is a
@@ -20,11 +20,11 @@ public abstract class EmployeeType {
 	 */
 	public abstract BigDecimal getExpenseAllocation();
 
-	public abstract void addReport(EmployeeType employee);
+	public abstract void addReport(Employee employee);
 
 	public abstract EmployeeId getEmployeeId();
 
-	public Collection<EmployeeType> getReports() {
+	public Collection<Employee> getReports() {
 		return Collections.unmodifiableSet(reports);
 	}
 }
