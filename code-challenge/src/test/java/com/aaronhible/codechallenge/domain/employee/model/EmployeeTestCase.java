@@ -132,4 +132,21 @@ public class EmployeeTestCase {
 		// assert (expect exception)
 
 	}
+
+	/**
+	 * UseCase (Implied): Manager cannot manage themselves.
+	 */
+	@Test(expected = IllegalStateException.class)
+	public void managerCannotManageThemself() {
+		// setup
+		// developers so wish they could manage qa testers
+		Employee irisManager = new Manager(new EmployeeId());
+
+		// action
+		irisManager.addReport(irisManager);
+
+		// assert (expect exception)
+
+	}
+
 }

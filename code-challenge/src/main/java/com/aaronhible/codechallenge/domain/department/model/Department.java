@@ -2,6 +2,10 @@ package com.aaronhible.codechallenge.domain.department.model;
 
 import com.aaronhible.codechallenge.domain.employee.model.Manager;
 
+/**
+ * Represents a department with a unique department id and a manager.
+ *
+ */
 public class Department {
 	private final DepartmentId departmentId;
 

@@ -6,6 +6,11 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Represents an Employee. Though not an interface, this class represents the
+ * "Component" of the GoF Composite Design Pattern.
+ * 
+ */
 public abstract class Employee {
 
 	protected EmployeeId employeeId;

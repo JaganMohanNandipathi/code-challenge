@@ -2,6 +2,10 @@ package com.aaronhible.codechallenge.domain;
 
 import java.util.UUID;
 
+/**
+ * Encapsulates common logic and equality for Ids
+ *
+ */
 public class Id {
 	protected final String id = UUID.randomUUID().toString();
 

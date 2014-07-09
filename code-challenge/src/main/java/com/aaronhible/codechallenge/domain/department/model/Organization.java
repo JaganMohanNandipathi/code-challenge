@@ -5,6 +5,10 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * An organization is a composed of multiple unique departments. 
+ *
+ */
 public class Organization {
 	private final Set<Department> departments = new HashSet<Department>();
 
