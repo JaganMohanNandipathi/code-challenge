@@ -6,7 +6,10 @@ Code Repo:
  		Strategy / State pattern, but quickly realize I was going down the wrong
  		path and moved to the Composite pattern.
 
+Execution:
+mvn test
 
+* Per the requirements documentation, I provided only unit tests.
 
 Build Requirements:
  * Maven 3.0.5
