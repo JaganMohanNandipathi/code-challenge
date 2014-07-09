@@ -8,8 +8,11 @@ import org.junit.Test;
 
 public class EmployeeTestCase extends TestCase {
 
+	/**
+	 * UseCase: QA Testers warrant an allocation of $500 each.
+	 */
 	@Test
-	public void testCreateQATesterEmployee() {
+	public void qaTesterEmployeeTypeShouldHaveExpenseAllocation() {
 
 		EmployeeId employeeId = new EmployeeId();
 		Employee employee = new Employee(employeeId, new QATesterType());
