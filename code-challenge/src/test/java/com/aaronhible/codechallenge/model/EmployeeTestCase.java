@@ -8,12 +8,6 @@ import java.util.Collection;
 
 import org.junit.Test;
 
-import com.aaronhible.codechallenge.model.DeveloperType;
-import com.aaronhible.codechallenge.model.Employee;
-import com.aaronhible.codechallenge.model.EmployeeId;
-import com.aaronhible.codechallenge.model.ManagerType;
-import com.aaronhible.codechallenge.model.QATesterType;
-
 public class EmployeeTestCase {
 
 	/**
@@ -27,13 +21,12 @@ public class EmployeeTestCase {
 
 		// setup / action
 		EmployeeId employeeId = new EmployeeId();
-		Employee employee = new Employee(employeeId, new QATesterType());
+		EmployeeType employee = new QATesterType(employeeId);
 
 		// assert
 		assertEquals(employee.getEmployeeId(), employeeId);
-		assertTrue(employee.getEmployeeType() instanceof QATesterType);
-		assertEquals(expectedAllocation, employee.getEmployeeType()
-				.getExpenseAllocation());
+		assertTrue(employee instanceof QATesterType);
+		assertEquals(expectedAllocation, employee.getExpenseAllocation());
 
 	}
 
@@ -47,13 +40,12 @@ public class EmployeeTestCase {
 
 		// setup / action
 		EmployeeId employeeId = new EmployeeId();
-		Employee employee = new Employee(employeeId, new DeveloperType());
+		EmployeeType employee = new DeveloperType(employeeId);
 
 		// assert
 		assertEquals(employee.getEmployeeId(), employeeId);
-		assertTrue(employee.getEmployeeType() instanceof DeveloperType);
-		assertEquals(expectedAllocation, employee.getEmployeeType()
-				.getExpenseAllocation());
+		assertTrue(employee instanceof DeveloperType);
+		assertEquals(expectedAllocation, employee.getExpenseAllocation());
 	}
 
 	/**
@@ -66,13 +58,12 @@ public class EmployeeTestCase {
 
 		// setup / action
 		EmployeeId employeeId = new EmployeeId();
-		Employee employee = new Employee(employeeId, new ManagerType());
+		EmployeeType employee = new ManagerType(employeeId);
 
 		// assert
 		assertEquals(employee.getEmployeeId(), employeeId);
-		assertTrue(employee.getEmployeeType() instanceof ManagerType);
-		assertEquals(expectedAllocation, employee.getEmployeeType()
-				.getExpenseAllocation());
+		assertTrue(employee instanceof ManagerType);
+		assertEquals(expectedAllocation, employee.getExpenseAllocation());
 
 	}
 
@@ -83,20 +74,18 @@ public class EmployeeTestCase {
 	@Test
 	public void managersCanHaveQATestersDeveloperManagerReports() {
 		// expected
-		Employee irisManager = new Employee(new EmployeeId(), new ManagerType());
-		Employee ryeDeveloper = new Employee(new EmployeeId(),
-				new DeveloperType());
-		Employee bruceQATester = new Employee(new EmployeeId(),
-				new QATesterType());
+		EmployeeType irisManager = new ManagerType(new EmployeeId());
+		EmployeeType ryeDeveloper = new DeveloperType(new EmployeeId());
+		EmployeeType bruceQATester = new QATesterType(new EmployeeId());
 
 		// setup
-		Employee jtManager = new Employee(new EmployeeId(), new ManagerType());
+		EmployeeType jtManager = new ManagerType(new EmployeeId());
 
 		// action
 		jtManager.addReport(irisManager);
 		jtManager.addReport(ryeDeveloper);
 		jtManager.addReport(bruceQATester);
-		Collection<Employee> reports = jtManager.getReports();
+		Collection<EmployeeType> reports = jtManager.getReports();
 
 		// assert
 		assertTrue(reports.contains(irisManager));

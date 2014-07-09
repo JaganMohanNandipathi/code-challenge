@@ -2,29 +2,11 @@ package com.aaronhible.codechallenge.model;
 
 import java.util.Collection;
 
-public class Employee {
-	private final EmployeeId employeeId;
+public interface Employee {
 
-	private final EmployeeType employeeType;
-	
-	public Employee(EmployeeId employeeId, EmployeeType employeeType) {
-		this.employeeId = employeeId;
-		this.employeeType = employeeType;
-	}
+	public EmployeeId getEmployeeId();
 
-	public EmployeeId getEmployeeId() {
-		return employeeId;
-	}
+	public void addReport(Employee employee);
 
-	public EmployeeType getEmployeeType() {
-		return this.employeeType;
-	}
-
-	public void addReport(Employee employee) {
-		employeeType.addReport(employee);
-	}
-	
-	public Collection<Employee> getReports() {
-		return employeeType.getReports();
-	}
+	public Collection<Employee> getReports();
 }
