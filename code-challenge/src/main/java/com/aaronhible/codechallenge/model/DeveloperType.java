@@ -1,5 +1,7 @@
 package com.aaronhible.codechallenge.model;
 
+import static com.aaronhible.codechallenge.util.ExceptionUtils.illegalStateException;
+
 import java.math.BigDecimal;
 
 public class DeveloperType extends EmployeeType {
@@ -17,9 +19,7 @@ public class DeveloperType extends EmployeeType {
 
 	@Override
 	public void addReport(EmployeeType employee) {
-		throw new IllegalStateException("Cannot add "
-				+ Employee.class.getSimpleName() + " to "
-				+ this.getClass().getSimpleName());
+		illegalStateException(employee, this);
 	}
 
 	@Override

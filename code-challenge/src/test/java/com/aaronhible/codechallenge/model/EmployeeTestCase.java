@@ -93,4 +93,37 @@ public class EmployeeTestCase {
 		assertTrue(reports.contains(bruceQATester));
 
 	}
+
+	/**
+	 * UserCase (Implied): QA Testers cannot have reports.
+	 */
+	@Test(expected = IllegalStateException.class)
+	public void qaTestersCannotHaveReports() {
+		// setup
+		// qa testers love to manage developers but they can't!
+		EmployeeType bruceQATester = new QATesterType(new EmployeeId());
+		EmployeeType ryeDeveloper = new DeveloperType(new EmployeeId());
+
+		// action
+		bruceQATester.addReport(ryeDeveloper);
+
+		// assert (expect exception)
+	}
+
+	/**
+	 * UseCase (Implied): Developers cannot have reports.
+	 */
+	@Test(expected = IllegalStateException.class)
+	public void developersCannotHaveReports() {
+		// setup
+		// developers so wish they could manage qa testers
+		EmployeeType ryeDeveloper = new DeveloperType(new EmployeeId());
+		EmployeeType bruceQATester = new QATesterType(new EmployeeId());
+
+		// action
+		ryeDeveloper.addReport(bruceQATester);
+
+		// assert (expect exception)
+
+	}
 }
