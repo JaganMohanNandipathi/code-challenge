@@ -1,22 +1,24 @@
 package com.aaronhible.savvis.model;
 
-import java.util.UUID;
-
-import org.junit.Test;
+import java.math.BigDecimal;
 
 import junit.framework.TestCase;
 
+import org.junit.Test;
+
 public class EmployeeTestCase extends TestCase {
-	
+
 	@Test
-	public void testCreateEmployee() {
-		String employeeId = UUID.randomUUID().toString();
-		EmployeeType employeeType = new QATesterType(Type.QA_TESTER);
-		
-		Employee employee = new Employee(employeeId, employeeType);
-		
+	public void testCreateQATesterEmployee() {
+
+		EmployeeId employeeId = new EmployeeId();
+		Employee employee = new Employee(employeeId, new QATesterType());
+
 		assertEquals(employee.getEmployeeId(), employeeId);
-		assertEquals(employeeType.getType(), employee.getType());
-		
+		assertTrue(employee.getEmployeeType() instanceof QATesterType);
+		assertEquals(new BigDecimal(500), employee.getEmployeeType().getExpenseAllocation());
+
 	}
+	
+	
 }

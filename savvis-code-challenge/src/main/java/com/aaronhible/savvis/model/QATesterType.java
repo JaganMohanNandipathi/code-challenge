@@ -1,17 +1,20 @@
 package com.aaronhible.savvis.model;
 
+import java.math.BigDecimal;
+
 
 public class QATesterType extends EmployeeType {
 
-	private final Type employeeType; 
-	
-	public QATesterType (Type employeeType) {
-		this.employeeType = employeeType;
+	private static final BigDecimal EXPENSE_ALLOCATION = new BigDecimal(500);
+
+	public QATesterType () {
 	}
-	
+
 	@Override
-	public Type getType() {
-		return employeeType;
-	}
+	public BigDecimal getExpenseAllocation() {
+		return EXPENSE_ALLOCATION;
+	}	
+	
+	
 
 }
